@@ -1,0 +1,51 @@
+SHOW databases;
+
+DROP TABLE db02.table01;
+DROP TABLE db02.table02;
+DROP TABLE db02.table03;
+DROP TABLE db02.table04;
+
+DROP database db02 cascade; 
+
+CREATE database db02;
+
+CREATE TABLE db02.table01 (id INTEGER, name string) TBLPROPERTIES ( 'transactional' = 'false');
+CREATE TABLE db02.table02 (id INTEGER, name string) stored AS parquet;
+CREATE TABLE db02.table03 (id INTEGER, name string) row format delimited fields terminated by ',' stored AS TEXTFILE;
+CREATE TABLE db02.table04 (id INTEGER, name string); 
+
+describe database db02; 
+use database db02;
+show tables;
+
+describe formatted db02.table01; 
+describe formatted db02.table02; 
+describe formatted db02.table03; 
+describe formatted db02.table04;
+
+INSERT INTO db02.table01 values (1, "Pablo");
+INSERT INTO db02.table02 values (1, "Pablo");
+INSERT INTO db02.table03 values (1, "Pablo");
+INSERT INTO db02.table04 values (1, "Pablo");
+
+SELECT  *
+FROM db02.table01;
+
+SELECT  *
+FROM db02.table02;
+
+SELECT  *
+FROM db02.table03;
+
+SELECT  *
+FROM db02.table04;
+-- ----------------------------------------------------------------
+INSERT INTO db02.table01 values (2, "Dinnesh"), (3, "Clayton"), (4, "Scott"), (5, "Ax"), (6, "Lo"), (7, "Mariana"), (8, "Andrea"), (9, "Krystyna"), (10, "Nacho");
+INSERT INTO db02.table02 values (2, "Dinnesh"), (3, "Clayton"), (4, "Scott"), (5, "Ax"), (6, "Lo"), (7, "Mariana"), (8, "Andrea"), (9, "Krystyna"), (10, "Nacho");
+INSERT INTO db02.table03 values (2, "Dinnesh"), (3, "Clayton"), (4, "Scott"), (5, "Ax"), (6, "Lo"), (7, "Mariana"), (8, "Andrea"), (9, "Krystyna"), (10, "Nacho");
+INSERT INTO db02.table04 values (2, "Dinnesh"), (3, "Clayton"), (4, "Scott"), (5, "Ax"), (6, "Lo"), (7, "Mariana"), (8, "Andrea"), (9, "Krystyna"), (10, "Nacho");
+-- ----------------------------------------------------
+INSERT INTO db02.table01 values (12, "Terri"), (13, "Agnes"), (14, "Nicolas"), (15, "Silvana"), (16, "Nora"), (17, "Filiberto"), (18, "Marcela"), (19, "Sandra"), (20, "Angi"), (21, "Suzanne");
+INSERT INTO db02.table02 values (12, "Terri"), (13, "Agnes"), (14, "Nicolas"), (15, "Silvana"), (16, "Nora"), (17, "Filiberto"), (18, "Marcela"), (19, "Sandra"), (20, "Angi"), (21, "Suzanne");
+INSERT INTO db02.table03 values (12, "Terri"), (13, "Agnes"), (14, "Nicolas"), (15, "Silvana"), (16, "Nora"), (17, "Filiberto"), (18, "Marcela"), (19, "Sandra"), (20, "Angi"), (21, "Suzanne");
+INSERT INTO db02.table04 values (2, "Dinnesh"), (3, "Clayton"), (4, "Scott"), (5, "Ax"), (6, "Lo"), (7, "Mariana"), (8, "Andrea"), (9, "Krystyna"), (10, "Nacho");
