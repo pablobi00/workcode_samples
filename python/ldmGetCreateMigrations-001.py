@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import json
+import requests
+
+print ('---- GET MIGRATION INFORMATION --------------------------\n')
+
+allData3 = requests.get('http://127.0.0.1:18080/migrations').json()
+
+for i in allData3:
+    if isinstance(i, dict):
+        for key, value in i.items():
+            theKey = key
+            if theKey=='migrationId' or theKey=='state':
+                print(key, value)
+
+print ('\n---- CREATE MIGRATION -- folder-c   ------------------------\n')
+
+addMigration = requests.put ('http://127.0.0.1:18080/migrations/g2tog2-folder-b?path=%2Ffolder-b&source=g2-west2&target=g2-east&actionPolicy=com.wandisco.livemigrator2.migration.OverwriteActionPolicy&autoStart=true&scanOnlyMigration=true').json()
+
+print (json.dumps(addMigration,indent=4))

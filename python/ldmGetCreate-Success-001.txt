@@ -1,0 +1,159 @@
+---- GET MIGRATION INFORMATION --------------------------
+
+migrationId g2g2-folder-a
+state COMPLETED
+migrationId folder-c-data
+state COMPLETED
+
+---- CREATE MIGRATION -- folder-c   ------------------------
+
+{
+    "migrationId": "g2tog2-folder-b",
+    "internalId": "088fab79-619e-4488-8636-42a38c3eb083",
+    "path": "/folder-b",
+    "scanOnlyMigration": true,
+    "source": "g2-west2",
+    "target": "g2-east",
+    "state": "RUNNING",
+    "resumable": false,
+    "abortReason": null,
+    "exclusions": [
+        {
+            "id": "globalExclusion.SparkStaging",
+            "description": "Spark Staging Content",
+            "fsRestriction": false,
+            "sourceFsExclusion": false,
+            "globalExclusion": true,
+            "defaultExclusion": true,
+            "type": "RegexExclusionDTO",
+            "patternType": "GLOB",
+            "regex": "/**/.spark-staging-**"
+        },
+        {
+            "id": "adls2.pathSegmentLimit",
+            "description": "The number of path segments comprising a blob name cannot exceed 60.",
+            "fsRestriction": true,
+            "sourceFsExclusion": false,
+            "globalExclusion": false,
+            "defaultExclusion": false,
+            "type": "RegexExclusionDTO",
+            "patternType": "AUTOMATA",
+            "regex": ".*([^\\/]*\\/){61,}.*"
+        },
+        {
+            "id": "adls2.maxNameLength",
+            "description": "Filename length cannot exceed 1024.",
+            "fsRestriction": true,
+            "sourceFsExclusion": false,
+            "globalExclusion": false,
+            "defaultExclusion": false,
+            "type": "RegexExclusionDTO",
+            "patternType": "JAVA_PCRE",
+            "regex": ".{1025,}"
+        },
+        {
+            "id": "adls2.backSlashCharacter",
+            "description": "Filepath or name cannot include a backslash.",
+            "fsRestriction": true,
+            "sourceFsExclusion": false,
+            "globalExclusion": false,
+            "defaultExclusion": false,
+            "type": "RegexExclusionDTO",
+            "patternType": "AUTOMATA",
+            "regex": ".*[\\\\].*"
+        },
+        {
+            "id": "globalExclusion.SparkTemporary",
+            "description": "Spark Temporary Files",
+            "fsRestriction": false,
+            "sourceFsExclusion": false,
+            "globalExclusion": true,
+            "defaultExclusion": true,
+            "type": "RegexExclusionDTO",
+            "patternType": "GLOB",
+            "regex": "/**/_temporary**"
+        },
+        {
+            "id": "globalExclusion.HiveStaging",
+            "description": "Hive Staging Content",
+            "fsRestriction": false,
+            "sourceFsExclusion": false,
+            "globalExclusion": true,
+            "defaultExclusion": true,
+            "type": "RegexExclusionDTO",
+            "patternType": "GLOB",
+            "regex": "/**/.hive-staging**"
+        },
+        {
+            "id": "adls2.illegalSuffix",
+            "description": "Names ending with '.' or '' character",
+            "fsRestriction": true,
+            "sourceFsExclusion": false,
+            "globalExclusion": false,
+            "defaultExclusion": false,
+            "type": "RegexExclusionDTO",
+            "patternType": "JAVA_PCRE",
+            "regex": "[.|\\/]$"
+        }
+    ],
+    "userDefinedExclusions": [],
+    "targetActionPolicy": "com.wandisco.livemigrator2.migration.OverwriteActionPolicy",
+    "pathMappings": [
+        {
+            "id": "folder-bto3b",
+            "description": null,
+            "sourceFileSystem": "g2-west2",
+            "sourcePath": "/folder-b/subfolderAinB",
+            "targetFileSystem": "g2-east",
+            "targetPath": "/folder-3b"
+        },
+        {
+            "id": "folder-bto2b",
+            "description": null,
+            "sourceFileSystem": "g2-west2",
+            "sourcePath": "/folder-b",
+            "targetFileSystem": "g2-east",
+            "targetPath": "/folder-2b"
+        }
+    ],
+    "unscheduledEvents": 0,
+    "scheduledEvents": 0,
+    "failedPathCount": 0,
+    "maxStoppedUnscheduledEventBufferSize": 100000,
+    "migrationCreatedTime": "2022-05-02T21:16:16.823Z",
+    "migrationStartTime": "2022-05-02T21:16:17.804Z",
+    "migrationCompleteTime": null,
+    "migrationEdge": "/folder-b",
+    "scannerSummary": {
+        "progressSummary": {
+            "filesScanned": 0,
+            "directoriesScanned": 0,
+            "bytesScanned": 0,
+            "filesExcluded": 0,
+            "dirsExcluded": 0,
+            "bytesExcluded": 0,
+            "baseScanCompletionTime": null
+        },
+        "contentSummary": null
+    },
+    "clientActivitySummary": {
+        "byteCount": 0,
+        "fileCount": 0,
+        "directoryCount": 0
+    },
+    "maxPendingRegions": 1000000,
+    "pendingRegionCount": 0,
+    "migrationGates": [],
+    "additionalProperties": {},
+    "oldestIncompleteWorkItem": {
+        "migrationId": "g2tog2-folder-b",
+        "itemType": "NONE",
+        "operation": null,
+        "path": null,
+        "newPath": null,
+        "sourceEventCreationTimestamp": 0,
+        "sourceEventCreationDate": "1970-01-01T00:00:00Z",
+        "ldmActionCreationTimeStamp": 0,
+        "ldmActionCreationDate": "1970-01-01T00:00:00Z"
+    }
+}

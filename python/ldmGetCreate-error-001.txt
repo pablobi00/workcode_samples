@@ -1,0 +1,17 @@
+---- GET MIGRATION INFORMATION --------------------------
+
+migrationId g2g2-folder-a
+state COMPLETED
+migrationId g2tog2-folder-b
+state COMPLETED
+migrationId folder-c-data
+state COMPLETED
+
+---- CREATE MIGRATION -- folder-c   ------------------------
+
+{
+    "error": 3002,
+    "status": 409,
+    "title": "Migration Already Defined Error",
+    "message": "The migration g2tog2-folder-b already exists."
+}

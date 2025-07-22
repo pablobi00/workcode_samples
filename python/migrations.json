@@ -1,0 +1,136 @@
+[ {
+  "migrationId" : "folder-c-data",
+  "internalId" : "bc67a32f-71cb-4a96-a0ac-54c53a747c9a",
+  "path" : "/folder-c",
+  "scanOnlyMigration" : true,
+  "source" : "g2-west2",
+  "target" : "g2-east",
+  "state" : "COMPLETED",
+  "resumable" : false,
+  "abortReason" : null,
+  "exclusions" : [ {
+    "id" : "globalExclusion.SparkStaging",
+    "description" : "Spark Staging Content",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : true,
+    "defaultExclusion" : true,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "GLOB",
+    "regex" : "/**/.spark-staging-**"
+  }, {
+    "id" : "adls2.pathSegmentLimit",
+    "description" : "The number of path segments comprising a blob name cannot exceed 60.",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "AUTOMATA",
+    "regex" : ".*([^\\/]*\\/){61,}.*"
+  }, {
+    "id" : "adls2.maxNameLength",
+    "description" : "Filename length cannot exceed 1024.",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "JAVA_PCRE",
+    "regex" : ".{1025,}"
+  }, {
+    "id" : "adls2.backSlashCharacter",
+    "description" : "Filepath or name cannot include a backslash.",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "AUTOMATA",
+    "regex" : ".*[\\\\].*"
+  }, {
+    "id" : "globalExclusion.SparkTemporary",
+    "description" : "Spark Temporary Files",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : true,
+    "defaultExclusion" : true,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "GLOB",
+    "regex" : "/**/_temporary**"
+  }, {
+    "id" : "globalExclusion.HiveStaging",
+    "description" : "Hive Staging Content",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : true,
+    "defaultExclusion" : true,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "GLOB",
+    "regex" : "/**/.hive-staging**"
+  }, {
+    "id" : "adls2.illegalSuffix",
+    "description" : "Names ending with '.' or '' character",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "JAVA_PCRE",
+    "regex" : "[.|\\/]$"
+  } ],
+  "userDefinedExclusions" : [ ],
+  "targetActionPolicy" : "com.wandisco.livemigrator2.migration.SkipIfSizeMatchActionPolicy",
+  "pathMappings" : [ {
+    "id" : "new-folder-c",
+    "description" : "Local folder-c will@20be folder c-target",
+    "sourceFileSystem" : "g2-west2",
+    "sourcePath" : "/folder-c",
+    "targetFileSystem" : "g2-east",
+    "targetPath" : "/folder-c-target"
+  } ],
+  "unscheduledEvents" : 0,
+  "scheduledEvents" : 0,
+  "failedPathCount" : 0,
+  "maxStoppedUnscheduledEventBufferSize" : 100000,
+  "migrationCreatedTime" : "2022-04-27T19:33:05.941Z",
+  "migrationStartTime" : "2022-04-27T19:57:53.279Z",
+  "migrationCompleteTime" : "2022-04-27T21:06:00.229Z",
+  "migrationEdge" : null,
+  "scannerSummary" : {
+    "progressSummary" : {
+      "filesScanned" : 260,
+      "directoriesScanned" : 27,
+      "bytesScanned" : 279172874240,
+      "filesExcluded" : 0,
+      "dirsExcluded" : 0,
+      "bytesExcluded" : 0,
+      "baseScanCompletionTime" : "2022-04-27T19:57:54.9Z"
+    },
+    "contentSummary" : {
+      "byteCount" : 268435456000,
+      "fileCount" : 250,
+      "directoryCount" : 26
+    }
+  },
+  "clientActivitySummary" : {
+    "byteCount" : 10737418240,
+    "fileCount" : 10,
+    "directoryCount" : 1
+  },
+  "maxPendingRegions" : 1000000,
+  "pendingRegionCount" : 0,
+  "migrationGates" : [ ],
+  "additionalProperties" : { },
+  "oldestIncompleteWorkItem" : {
+    "migrationId" : "folder-c-data",
+    "itemType" : "NONE",
+    "operation" : null,
+    "path" : null,
+    "newPath" : null,
+    "sourceEventCreationTimestamp" : 0,
+    "sourceEventCreationDate" : "1970-01-01T00:00:00Z",
+    "ldmActionCreationTimeStamp" : 0,
+    "ldmActionCreationDate" : "1970-01-01T00:00:00Z"
+  }
+} ]
