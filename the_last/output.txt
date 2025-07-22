@@ -1,0 +1,4 @@
+('dell-sub5', '28e6acaf-23fa-4bd1-b285-83492cbbec0c', '/sub1/sub2/sub3/sub4/sub5')
+('adls2-adls1-folder-a', '63265517-0afc-4e50-9844-040e99965c73', '/folder-a')
+('localFStest', '8cfaf73e-3b51-43f2-a223-1d392c381239', '/')
+('bda1', 'd50e440e-cf7e-476e-8aa0-91c1f509b32e', '/repl3')

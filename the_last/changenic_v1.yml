@@ -1,0 +1,31 @@
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        lan0: {}
+        wan0:
+            dhcp4: "no"
+            dhcp6: "no"
+            addresses:
+              - 172.96.112.186/30
+              - 2604:980:1009:1d0::2/64
+    vlans:
+        lan0.1012:
+            dhcp4: "no"
+            dhcp6: "no"
+            addresses:
+              - 10.0.1.2/24
+            id: "1012"
+            link: lan0
+        lan0.1019:
+            dhcp4: "no"
+            dhcp6: "no"
+            addresses:
+              - 23.236.97.30/30
+            gateway4: 23.236.97.29
+            nameservers:
+                addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+            id: "1019"
+            link: lan0
