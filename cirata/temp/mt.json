@@ -1,0 +1,222 @@
+ {
+  "migrationId" : "db01",
+  "internalId" : "07a8dca1-b566-4b4e-af64-a2fe17fa9d9e",
+  "path" : "/data",
+  "scanOnlyMigration" : true,
+  "recurringMigration" : true,
+  "recurringPeriodSeconds" : 60,
+  "deletionMode" : "NO_DELETION",
+  "source" : "LocalHDFS",
+  "target" : "gen2-001",
+  "state" : "WAITING_FOR_NEXT_RECURRENCE",
+  "resumable" : false,
+  "abortReason" : null,
+  "exclusions" :  {
+    "id" : "globalExclusion.SparkStaging",
+    "description" : "Spark Staging Content",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : true,
+    "defaultExclusion" : true,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "GLOB",
+    "regex" : "/**/.spark-staging-**"
+  }, {
+    "id" : "adls2.backSlashCharacter",
+    "description" : "Filepath or name cannot include a backslash.",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "AUTOMATA",
+    "regex" : ".*\\\\].*"
+  }, {
+    "id" : "adls2.illegalSuffix",
+    "description" : "Names ending with '.' or '' character",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "JAVA_PCRE",
+    "regex" : ".|\\/]$"
+  }, {
+    "id" : "globalExclusion.HiveStaging",
+    "description" : "Hive Staging Content",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : true,
+    "defaultExclusion" : true,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "GLOB",
+    "regex" : "/**/.hive-staging**"
+  }, {
+    "id" : "globalExclusion.SparkTemporary",
+    "description" : "Spark Temporary Files",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : true,
+    "defaultExclusion" : true,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "GLOB",
+    "regex" : "/**/_temporary**"
+  }, {
+    "id" : "hdfs.snapshotFolders",
+    "description" : "HDFS snapshots",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : true,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "AUTOMATA",
+    "regex" : "(/|/.*/)\\.snapshot(/.*)?"
+  }, {
+    "id" : "adls2.pathSegmentLimit",
+    "description" : "The number of path segments comprising a blob name cannot exceed 60.",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "AUTOMATA",
+    "regex" : ".*(^\\/]*\\/){61,}.*"
+  }, {
+    "id" : "adls2.maxNameLength",
+    "description" : "Filename length cannot exceed 1024.",
+    "fsRestriction" : true,
+    "sourceFsExclusion" : false,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "JAVA_PCRE",
+    "regex" : ".{1025,}"
+  }, {
+    "id" : "hdfs.trashLocations",
+    "description" : "HDFS Trash Locations",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : true,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "AUTOMATA",
+    "regex" : "(/|/.*/)\\.Trash(/.*)?"
+  }, {
+    "id" : "hdfs.copyingFiles",
+    "description" : "HDFS Copying files",
+    "fsRestriction" : false,
+    "sourceFsExclusion" : true,
+    "globalExclusion" : false,
+    "defaultExclusion" : false,
+    "type" : "RegexExclusionDTO",
+    "patternType" : "JAVA_PCRE",
+    "regex" : ".\\._COPYING_$"
+  } ],
+  "userDefinedExclusions" :  ],
+  "targetActionPolicy" : "com.wandisco.livemigrator2.migration.SkipIfSizeMatchActionPolicy",
+  "pathMappings" :  ],
+  "unscheduledEvents" : 0,
+  "scheduledEvents" : 0,
+  "failedPathCount" : 0,
+  "maxStoppedUnscheduledEventBufferSize" : 100000,
+  "migrationCreatedTime" : "2023-04-17T22:00:49.53Z",
+  "migrationStartTime" : "2023-04-17T22:00:49.99Z",
+  "migrationCompleteTime" : null,
+  "migrationEdge" : null,
+  "scannerSummary" : {
+    "progressSummary" : {
+      "filesScanned" : 3036,
+      "directoriesScanned" : 573,
+      "bytesScanned" : 67367322,
+      "filesExcluded" : 0,
+      "dirsExcluded" : 0,
+      "bytesExcluded" : 0,
+      "baseScanCompletionTime" : "2023-04-17T22:00:50.159Z"
+    },
+    "contentSummary" : {
+      "byteCount" : 133137,
+      "fileCount" : 6,
+      "directoryCount" : 1
+    }
+  },
+  "clientActivitySummary" : {
+    "byteCount" : 0,
+    "fileCount" : 0,
+    "directoryCount" : 0
+  },
+  "maxPendingRegions" : 1000000,
+  "pendingRegionCount" : 0,
+  "migrationGates" :  ],
+  "recurringMigrationTracker" : {
+    "iterations" :  {
+      "startTime" : "2023-04-17T23:25:54.183Z",
+      "completeTime" : "2023-04-17T23:25:54.979Z",
+      "iteration" : 71,
+      "durationInSeconds" : 0
+    }, {
+      "startTime" : "2023-04-17T23:26:55.182Z",
+      "completeTime" : "2023-04-17T23:26:56.624Z",
+      "iteration" : 72,
+      "durationInSeconds" : 1
+    }, {
+      "startTime" : "2023-04-17T23:27:55.183Z",
+      "completeTime" : "2023-04-17T23:27:56.129Z",
+      "iteration" : 73,
+      "durationInSeconds" : 0
+    }, {
+      "startTime" : "2023-04-17T23:28:56.182Z",
+      "completeTime" : "2023-04-17T23:28:57.728Z",
+      "iteration" : 74,
+      "durationInSeconds" : 1
+    }, {
+      "startTime" : "2023-04-17T23:29:56.183Z",
+      "completeTime" : "2023-04-17T23:29:57.289Z",
+      "iteration" : 75,
+      "durationInSeconds" : 1
+    }, {
+      "startTime" : "2023-04-17T23:30:57.182Z",
+      "completeTime" : "2023-04-17T23:30:57.855Z",
+      "iteration" : 76,
+      "durationInSeconds" : 0
+    }, {
+      "startTime" : "2023-04-17T23:31:57.183Z",
+      "completeTime" : "2023-04-17T23:31:58.422Z",
+      "iteration" : 77,
+      "durationInSeconds" : 1
+    }, {
+      "startTime" : "2023-04-17T23:32:58.182Z",
+      "completeTime" : "2023-04-17T23:32:59.021Z",
+      "iteration" : 78,
+      "durationInSeconds" : 0
+    }, {
+      "startTime" : "2023-04-17T23:33:58.182Z",
+      "completeTime" : "2023-04-17T23:33:59.635Z",
+      "iteration" : 79,
+      "durationInSeconds" : 1
+    }, {
+      "startTime" : "2023-04-17T23:34:58.183Z",
+      "completeTime" : "2023-04-17T23:34:59.214Z",
+      "iteration" : 80,
+      "durationInSeconds" : 1
+    } ],
+    "recurringCount" : 80,
+    "scansInLastTwentyFourHours" : 80,
+    "scansInLastSevenDays" : 80,
+    "avgDurationInSeconds" : 0
+  },
+  "additionalProperties" : {
+    "additionalProperties" : "{}"
+  },
+  "oldestIncompleteWorkItem" : {
+    "migrationId" : "db01",
+    "itemType" : "NONE",
+    "operation" : null,
+    "path" : null,
+    "newPath" : null,
+    "sourceEventCreationTimestamp" : 0,
+    "sourceEventCreationDate" : "1970-01-01T00:00:00Z",
+    "ldmActionCreationTimeStamp" : 0,
+    "ldmActionCreationDate" : "1970-01-01T00:00:00Z"
+  },
+  "numberPathsRequeued" : 0
+} ]
