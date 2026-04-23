@@ -118,15 +118,15 @@ printf '\e[0;36m\n===== [Docker] =====\n\e[0m'
 
 # ==========================================================================================
 
-# printf '\e[0;36m\n===== [DBs] ============\n\e[0m'
+printf '\e[0;36m\n===== [DBs] ============\n\e[0m'
 
-# apt install -y mysql-server
+apt install -y mysql-server
 
 # ======= use all dfaults
-# mysql_secure_installation
+mysql_secure_installation
 
-# systemctl status mysql.service
-# mysql -u root -p
+systemctl status mysql.service
+mysql -u root -p
 # ======= test ---->  SELECT user,authentication_string,plugin,host FROM mysql.user;
 
 printf '\e[0;36m\n===== [Other] ============\n\e[0m'
