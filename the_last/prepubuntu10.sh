@@ -34,7 +34,7 @@ timedatectl set-timezone America/Vancouver
 
 # PS1 for the ubuntu user (green prompt)
 grep -qxF "PS1='\\[\\e[01;32m\\]" "${USER_HOME}/.bashrc" 2>/dev/null || \
-    echo "PS1='\[\e[01;32m\][\[\e[m\]\[\e[01;32m\]\D{%Y.%m.%d}-\A\[\e[m\]\[\e[01;32m\]]\[\e[m\] \[\e[01;32m\]\u\[\e[m\]\[\e[01;32m\]@\[\e[m\]\[\e[01;32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\] \[\e[32m\]\\$\[\e[m\] '" \
+    echo "PS1='\[\e[01;32m\][\[\e[m\]\[\e[01;32m\]\D{%Y.%m.%d}-\A\[\e[m\]\[\e[01;32m\]]\[\e[m\] \[\e[01;32m\]\u\[\e[m\]\[\e[01;32m\]@\[\e[m\]\[\e[01;32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\] \[\e[32m\] \\$\[\e[m\] '" \
     >> "${USER_HOME}/.bashrc"
 
 # PS1 for root (red prompt to signal elevated privileges)

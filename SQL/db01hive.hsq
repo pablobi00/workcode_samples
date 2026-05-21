@@ -5,8 +5,8 @@ SHOW databases;
 use db01;
 show tables;
 
-CREATE database db01;
-CREATE table db01.table01 (id INTEGER, name string);
+mttmmmmmmmmmmmmmmmmmmmm
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 CREATE table db01.table02 (id INTEGER, name string) stored as parquet;
 CREATE table db01.table03 (id INTEGER, name string) row format delimited fields terminated by ',' stored as TEXTFILE;
 CREATE table db01.table04 (id INTEGER, name string) stored as ORC;
