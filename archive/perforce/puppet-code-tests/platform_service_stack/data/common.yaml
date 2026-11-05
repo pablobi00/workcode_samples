@@ -1,0 +1,19 @@
+---
+# Common defaults for the platform_service_stack module.
+
+# Windows defaults define the IIS feature and SQL Server service details.
+platform_service_stack::windows::iis_feature: 'Web-Server'
+platform_service_stack::windows::iis_service: 'W3SVC'
+platform_service_stack::windows::sql_package_name: 'SQL Server 2022 Database Engine'
+platform_service_stack::windows::sql_service: 'MSSQLSERVER'
+
+# Replace this example installer path with the real SQL Server setup path in your environment.
+platform_service_stack::windows::sql_source: 'C:/installers/SQLServer2022-x64-ENU.iso'
+
+# These silent install options are suitable for a basic SQL Server engine install.
+platform_service_stack::windows::sql_install_options:
+  - '/Q'
+  - '/ACTION=Install'
+  - '/FEATURES=SQLENGINE'
+  - '/INSTANCENAME=MSSQLSERVER'
+  - '/IACCEPTSQLSERVERLICENSETERMS'

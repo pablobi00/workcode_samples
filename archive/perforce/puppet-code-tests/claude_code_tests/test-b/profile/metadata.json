@@ -1,0 +1,26 @@
+{
+  "name": "profile",
+  "version": "0.1.0",
+  "author": "your_name",
+  "summary": "Manages base packages, time sync, and MOTD scripts.",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 6.0.0 < 10.0.0"
+    },
+    {
+      "name": "puppetlabs/ntp",
+      "version_requirement": ">= 8.0.0 < 10.0.0"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.0.0 < 9.0.0"
+    }
+  ]
+}

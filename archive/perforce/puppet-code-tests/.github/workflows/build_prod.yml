@@ -1,0 +1,63 @@
+# name: Prod
+
+# on: 
+#   push:
+#     branches: 
+#     # Add production branches for this doc set here
+#     - '2019.8'
+#     - latest
+  
+#   workflow_dispatch:
+     
+# jobs:
+#   build-dita:
+#     name: Build HTML and upload to s3
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Initialize
+#       uses: actions/checkout@v2
+
+#     - name: Clone puppet-docs-dita-ot
+#       run: |
+#         git clone https://${{ secrets.GIT_HUB_TOKEN }}:x-oauth-basic@github.com/puppetlabs/puppet-docs-dita-ot.git --branch main
+#     - name: Set up Ruby
+#       uses: ruby/setup-ruby@v1
+#       with:
+#         ruby-version: 2.7.1
+#         bundler-cache: true
+#       env:
+#         BUNDLE_GEMFILE: puppet-docs-dita-ot/Gemfile
+#         BUNDLE_WITHOUT: references
+    
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: us-west-2
+
+#     - name: Build docs
+#       env: 
+#         GIT_HUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+#         BUNDLE_GEMFILE: puppet-docs-dita-ot/Gemfile
+#         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+#         DOCS_LOCAL_DEV: false
+#       run: bundle exec rake -f puppet-docs-dita-ot/Rakefile build_html\[puppet-docs-dita-ot/prod.yaml\]
+    
+#     - name: Print logs on failure
+#       if: ${{ failure() }}
+#       run: cat logs/*.txt
+
+#     - name: Trigger Netlify
+#       run: curl -X POST ${{ secrets.NETLIFY_PROD }}
+
+#     - name: Notify Slack if the build fails
+#       if: ${{ failure() }}
+#       run: >-
+#         curl -X POST -H 'Content-type: application/json'
+#         --data '{"text":"*Build failed*\n
+#         _User:_ '"$GITHUB_ACTOR"'\n
+#         _Repo:_ '"$GITHUB_REPOSITORY"'\n
+#         _Branch:_ '"$GITHUB_REF"'\n
+#         _Commit link:_ '"https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"'"}'
+#         ${{ secrets.SLACK_WEBHOOK }}

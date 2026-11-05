@@ -1,0 +1,7 @@
+---
+# Windows defaults for the Windows branch.
+platform_service_stack::deployment_branch: 'windows'
+platform_service_stack::windows::iis_feature: 'Web-Server'
+platform_service_stack::windows::iis_service: 'W3SVC'
+platform_service_stack::windows::sql_package_name: 'SQL Server 2022 Database Engine'
+platform_service_stack::windows::sql_service: 'MSSQLSERVER'

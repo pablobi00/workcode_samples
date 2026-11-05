@@ -1,0 +1,9 @@
+---
+# RedHat-family defaults for the Linux branch.
+platform_service_stack::deployment_branch: 'linux'
+platform_service_stack::linux::apache_package: 'httpd'
+platform_service_stack::linux::apache_service: 'httpd'
+platform_service_stack::linux::time_package: 'chrony'
+platform_service_stack::linux::time_service: 'chronyd'
+platform_service_stack::linux::database_package: 'mariadb-server'
+platform_service_stack::linux::database_service: 'mariadb'

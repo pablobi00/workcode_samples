@@ -1,0 +1,16 @@
+---
+profile::motd::packages:
+  - bzip2
+  - update-motd
+  - figlet
+  - lolcat
+  - hddtemp
+
+profile::motd::chrony_package: 'chrony'
+profile::motd::chrony_service: 'chronyd'
+
+profile::motd::motd_source: 'puppet:///modules/profile/motd'
+profile::motd::motd_dir: '/etc/update-motd.d'
+profile::motd::motd_owner: 'root'
+profile::motd::motd_group: 'root'
+profile::motd::motd_mode: '0755'

@@ -1,0 +1,9 @@
+---
+# Ubuntu defaults for the Linux branch.
+platform_service_stack::deployment_branch: 'linux'
+platform_service_stack::linux::apache_package: 'apache2'
+platform_service_stack::linux::apache_service: 'apache2'
+platform_service_stack::linux::time_package: 'chrony'
+platform_service_stack::linux::time_service: 'chrony'
+platform_service_stack::linux::database_package: 'mariadb-server'
+platform_service_stack::linux::database_service: 'mariadb'
