@@ -1,0 +1,6 @@
+[submodule "archive/perforce/puppet-code-tests"]
+	path = archive/perforce/puppet-code-tests
+	url = https://github.com/pablobi00/puppet-code-tests.git
+[submodule "archive/perforce/puppet_shared"]
+	path = archive/perforce/puppet_shared
+	url = https://github.com/pablobi00/puppet_shared.git
