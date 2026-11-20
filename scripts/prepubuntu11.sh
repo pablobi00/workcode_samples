@@ -258,6 +258,21 @@ apt-get -y full-upgrade
 apt-get -y install --no-install-recommends \
     net-tools iftop unzip wget plocate nfs-common bat
 
+# Install tldr from the Snap Store. The apt tldr clients (tldr, tealdeer)
+# can't download pages any more, and their /usr/bin/tldr would shadow
+# /snap/bin/tldr in PATH, so remove them if present.
+for pkg in tldr tealdeer; do
+    if dpkg -s "$pkg" >/dev/null 2>&1; then
+        apt-get -y purge "$pkg"
+    fi
+done
+if command -v snap >/dev/null 2>&1; then
+    snap wait system seed.loaded
+    snap install tldr
+else
+    printf 'WARNING: snapd not available; skipping tldr install.\n' >&2
+fi
+
 # Turn on NTP and set the timezone.
 printf '\n===== Timezone =====\n'
 timedatectl set-ntp true
