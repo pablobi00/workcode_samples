@@ -2,7 +2,7 @@
 
 # DISCLAIMER - This code is for test purposes only - DO NOT use in production.
 #
-# setup-rustfs.sh - Lab setup for RustFS (S3-compatible) on Ubuntu
+# rustfs-setup v2.sh - Lab setup for RustFS (S3-compatible) on Ubuntu
 #   - Installs Docker
 #   - Runs RustFS in a container (S3 API + web console)
 #   - Installs AWS CLI v2 (official installer)
